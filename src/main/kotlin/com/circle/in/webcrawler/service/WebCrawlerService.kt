@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 @Service
 class WebCrawlerService {
     infix fun mentionedCountFor(search: SearchDto): SearchResultDto {
-        val document = Jsoup.connect("https://martinfowler.com/").get()
+        val document = Jsoup.connect(search.url).get()
         val count = document
             .text()
             .split(" ")
